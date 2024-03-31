@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Delete Post
+{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h3>この投稿を削除しますか？</h3>
+        <h5 class="mt-4">タイトル</h5>
+        <div class="card mx-auto" style="max-width: 18rem;">
+            <div class="card-body">
+                <p>{{ post.title }}</p>
+            </div>
+        </div>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">削除</button>
+        </form>
+    </div>
+{% endblock %}

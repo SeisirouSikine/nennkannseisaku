@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Myつ痛{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* ピンクの背景色 */
+        .pink-bg {
+            background-color: pink !important; /* !important を使用して優先度を上げる */
+        }
+        /* 見やすいテキストカラー */
+        .text-light-pink {
+            color: #fff !important; /* 白色 */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark pink-bg">
+        <div class="container">
+            <a class="navbar-brand text-light-pink" href="#">Myつ痛</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto"> <!-- Change ml-auto to mr-auto for left alignment -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light-pink" href="{% url 'index' %}">ほーむ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light-pink" href="{% url 'create_post' %}">投稿</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light-pink" href="{% url 'toiawase' %}">お問い合わせ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer mt-auto py-3 pink-bg">
+        <div class="container text-center text-light-pink">
+            <span class="text-muted">Myつ痛 &copy; {% now "Y" %}</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

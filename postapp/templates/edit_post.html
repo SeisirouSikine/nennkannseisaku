@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    へんしゅう
+{% endblock %}
+
+{% block content %}
+    <h1>へんしゅう</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">投稿</button>
+    </form>
+{% endblock %}
+

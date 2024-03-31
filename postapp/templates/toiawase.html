@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせページ</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f8fa;
+    }
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #1da1f2;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button[type="submit"]:hover {
+        background-color: #0d8af2;
+    }
+    .back-link {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .back-link a {
+        text-decoration: none;
+        color: #1da1f2;
+    }
+    .back-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>お問い合わせページ</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="name">名前:</label>
+            <input type="text" name="name" id="name" required />
+        </div>
+        <div>
+            <label for="email">メールアドレス:</label>
+            <input type="email" name="email" id="email" required />
+        </div>
+        <div>
+            <label for="subject">要件:</label>
+            <input type="text" name="subject" id="subject" required />
+        </div>
+        <div>
+            <label for="message">メッセージ:</label>
+            <textarea name="message" id="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">送信</button>
+    </form>
+    <div class="back-link">
+        <a href="../">🔙 戻る</a>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
